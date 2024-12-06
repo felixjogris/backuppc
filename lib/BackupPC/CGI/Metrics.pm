@@ -155,7 +155,7 @@ sub action
         }
 
         $metrics{hosts}{$host} = {
-            full_start_time   => int($$lastFullBackup->{startTime}),
+            full_age          => time() - int($$lastFullBackup->{startTime}),
             full_count        => $fullCount,
             full_duration     => int($fullDuration),
             full_keep_count   => $Conf{FullKeepCnt},
@@ -166,7 +166,7 @@ sub action
             full_size_new     => int($$lastFullBackup->{sizeNew}),
             full_nfiles_exist => int($$lastFullBackup->{nFilesExist}),
             full_nfiles_new   => int($$lastFullBackup->{nFilesNew}),
-            incr_start_time   => int($$lastIncrBackup->{startTime}),
+            incr_age          => time() - int($$lastIncrBackup->{startTime}),
             incr_count        => $incrCount,
             incr_duration     => int($incrDuration),
             incr_keep_count   => $Conf{IncrKeepCnt},
@@ -177,9 +177,9 @@ sub action
             incr_size_new     => int($$lastIncrBackup->{sizeNew}),
             incr_nfiles_exist => int($$lastIncrBackup->{nFilesExist}),
             incr_nfiles_new   => int($$lastIncrBackup->{nFilesNew}),
-            error             => $Status{$host}{error},
-            reason            => $Status{$host}{reason},
-            state             => $Status{$host}{state},
+            error             => $Status{$host}{error} // "",
+            reason            => $Status{$host}{reason} // "",
+            state             => $Status{$host}{state} // "",
             disabled          => $Conf{BackupsDisable},
         };
     }
@@ -209,7 +209,7 @@ sub action
             encoding => 'utf-8'
         );
 
-        my $baseURL = $ENV{HTTPS} eq "on" ? 'https://' : 'http://' . $ENV{'SERVER_NAME'} . $ENV{SCRIPT_NAME};
+        my $baseURL = ($ENV{HTTPS} eq "on" ? 'https://' : 'http://') . $ENV{'SERVER_NAME'} . $ENV{SCRIPT_NAME};
 
         $rss->channel(
             title       => eval("qq{$Lang->{RSS_Doc_Title}}"),
@@ -224,13 +224,13 @@ sub action
                 $incrAge, $hostState, $hostDisabled, $hostLastAttempt
             );
             $fullCnt  = $metrics{hosts}{$host}{full_count};
-            $fullAge  = sprintf("%.1f", (time - $metrics{hosts}{$host}{full_timestamp}) / (24 * 3600));
+            $fullAge  = sprintf("%.1f", $metrics{hosts}{$host}{full_age} / (24 * 3600));
             $fullSize = sprintf("%.2f", $metrics{hosts}{$host}{full_size} / (1024**3));
             $fullRate = sprintf("%.2f", $metrics{hosts}{$host}{full_rate} / (1024**2));
             $incrCnt  = $metrics{hosts}{$host}{incr_count};
-            $incrAge  = sprintf("%.1f", (time - $metrics{hosts}{$host}{incr_timestamp}) / (24 * 3600));
+            $incrAge  = sprintf("%.1f", $metrics{hosts}{$host}{incr_age} / (24 * 3600));
 
-            my $error;
+            my $error = "";
             if (   $metrics{hosts}{$host}{state} ne "Status_backup_in_progress"
                 && $metrics{hosts}{$host}{state} ne "Status_restore_in_progress"
                 && $metrics{hosts}{$host}{error} ne "" ) {
@@ -238,8 +238,8 @@ sub action
                 $error = " ($error)";
             }
 
-            $hostState       = $Lang->{$metrics{hosts}{$host}{state}};
-            $hostLastAttempt = $Lang->{$metrics{hosts}{$host}{reason}} . $error;
+            $hostState       = $Lang->{$metrics{hosts}{$host}{state}} // $metrics{hosts}{$host}{state};
+            $hostLastAttempt = ($Lang->{$metrics{hosts}{$host}{reason}} // $metrics{hosts}{$host}{reason}) . $error;
             $hostDisabled    = $metrics{hosts}{$host}{disabled};
 
             my $description = eval("qq{$Lang->{RSS_Host_Summary}}");
