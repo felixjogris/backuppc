@@ -45,13 +45,11 @@ $Lang{Admin_Options_Page} = <<EOF;
               document.ReloadForm.submit();">
 </table>
 </form>
-<!--
-\${h2("Konfigurace serveru")}
+\${h2("Konfigurace Serveru")}
 <ul>
-  <li><i>Jiná nastavení mohou být zde ... např,</i>
-  <li>Editace konfigurace serveru
+  <li><a href="\$MyURL\?action=editConfig">Editovat Konfigurace Serveru</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">Editovat Hosty</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "Není možné se připojit k BackupPC serveru";
@@ -1440,7 +1438,6 @@ EOF
 
 $Lang{Only_privileged_users_can_edit_config_files} = "Pouze oprávnění uživatelé mohou editovat konfikuraci.";
 $Lang{CfgEdit_Edit_Config}                         = "Editovat konfiguraci";
-$Lang{CfgEdit_Edit_Hosts}                          = "Editovat Hosty";
 
 $Lang{CfgEdit_Title_Server}                    = "Server";
 $Lang{CfgEdit_Title_General_Parameters}        = "Hlavní parametry";

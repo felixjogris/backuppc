@@ -432,16 +432,6 @@ sub Header
         {link => "?action=status",  name => $Lang->{Status}},
         {link => "?action=summary", name => $Lang->{PC_Summary}},
         {
-            link => "?action=editConfig",
-            name => $Lang->{CfgEdit_Edit_Config},
-            priv => 1
-        },
-        {
-            link => "?action=editConfig&newMenu=hosts",
-            name => $Lang->{CfgEdit_Edit_Hosts},
-            priv => 1
-        },
-        {
             link => "?action=adminOpts",
             name => $Lang->{Admin_Options},
             priv => 1

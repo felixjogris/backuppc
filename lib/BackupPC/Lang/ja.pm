@@ -45,13 +45,11 @@ $Lang{Admin_Options_Page}                           = <<EOF;
               document.ReloadForm.submit();">
 </table>
 </form>
-<!--
 \${h2("サーバの設定")}
 <ul>
-  <li><i>他の設定はここでできます。例えば、</i>
-  <li>サーバ設定の編集
+  <li><a href="\$MyURL\?action=editConfig">設定の編集</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">ホストの編集</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "BackupPCサーバへ接続できません";
@@ -1427,7 +1425,6 @@ EOF
 
 $Lang{Only_privileged_users_can_edit_config_files} = "Only privileged users can edit configuration settings.";
 $Lang{CfgEdit_Edit_Config}                         = "設定の編集";
-$Lang{CfgEdit_Edit_Hosts}                          = "ホストの編集";
 
 $Lang{CfgEdit_Title_Server}                    = "サーバ";
 $Lang{CfgEdit_Title_General_Parameters}        = "一般のパラメータ";
