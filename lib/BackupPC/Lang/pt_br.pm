@@ -49,13 +49,11 @@ $Lang{Admin_Options_Page}                           = <<EOF;
               document.ReloadForm.submit();">
 </table>
 </form>
-<!--
 \${h2("Configuração do Servidor")}
 <ul>
-  <li><i>Espaço para outras opções... e.j.,</i>
-  <li>Editar configurações do servidor
+  <li><a href="\$MyURL\?action=editConfig">Editar Configurações do Servidor</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">Editar Hosts</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "Impossível conectar ao servidor BackupPC";
@@ -1453,7 +1451,6 @@ EOF
 
 $Lang{Only_privileged_users_can_edit_config_files} = "Somente usuários privilegiados podem editar as configurações.";
 $Lang{CfgEdit_Edit_Config}                         = "Editar Configurações";
-$Lang{CfgEdit_Edit_Hosts}                          = "Editar Hosts";
 
 $Lang{CfgEdit_Title_Server}                    = "Servidor";
 $Lang{CfgEdit_Title_General_Parameters}        = "Parâmetros Gerais";

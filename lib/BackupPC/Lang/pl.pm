@@ -47,13 +47,11 @@ $Lang{Admin_Options_Page} = <<EOF;
     </tr>
   </table>
 </form>
-<!--
 \${h2("Konfiguracja Serwera")}
 <ul>
-  <li><i>Inne opcje mogą być tu ... . tzn,</i></li>
-  <li>Edytuj Konfigurację Serwera</li>
+  <li><a href="\$MyURL\?action=editConfig">Edytuj konfigurację serwera</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">Edytuj Hosty</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "Nie można połączyć się z serwerem BackupPC";
@@ -1432,7 +1430,6 @@ EOF
 $Lang{Only_privileged_users_can_edit_config_files} =
   "Tylko uprzywilejowani użytkownicy mogą edytować pliki konfiguracyjne.";
 $Lang{CfgEdit_Edit_Config} = "Edytuj konfigurację";
-$Lang{CfgEdit_Edit_Hosts}  = "Edytuj Hosty";
 
 $Lang{CfgEdit_Title_Server}                    = "Serwer";
 $Lang{CfgEdit_Title_General_Parameters}        = "Parametry Ogólne";

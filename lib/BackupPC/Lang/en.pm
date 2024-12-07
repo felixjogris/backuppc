@@ -45,13 +45,11 @@ $Lang{Admin_Options_Page}                           = <<EOF;
               document.ReloadForm.submit();">
 </table>
 </form>
-<!--
 \${h2("Server Configuration")}
 <ul>
-  <li><i>Other options can go here... e.g.,</i>
-  <li>Edit server configuration
+  <li><a href="\$MyURL\?action=editConfig">Edit Server Configuration</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">Edit Hosts</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "Unable to connect to BackupPC server";
@@ -1445,7 +1443,6 @@ EOF
 
 $Lang{Only_privileged_users_can_edit_config_files} = "Only privileged users can edit configuration settings.";
 $Lang{CfgEdit_Edit_Config}                         = "Edit Config";
-$Lang{CfgEdit_Edit_Hosts}                          = "Edit Hosts";
 
 $Lang{CfgEdit_Title_Server}                    = "Server";
 $Lang{CfgEdit_Title_General_Parameters}        = "General Parameters";

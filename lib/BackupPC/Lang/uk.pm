@@ -48,13 +48,11 @@ $Lang{Admin_Options_Page} = <<EOF;
               document.ReloadForm.submit();">
 </table>
 </form>
-<!--
 \${h2("Керування сервером")}
 <ul>
-  <li><i>Other options can go here... e.g.,</i>
-  <li>Edit server configuration
+  <li><a href="\$MyURL\?action=editConfig">Правити конфігурацію</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">Правити хости</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "Неможливо зв'язатися з сервером BackupPC";
@@ -1449,7 +1447,6 @@ EOF
 
 $Lang{Only_privileged_users_can_edit_config_files} = "Only privileged users can edit configuration settings.";
 $Lang{CfgEdit_Edit_Config}                         = "Правити конфігурацію";
-$Lang{CfgEdit_Edit_Hosts}                          = "Правити хости";
 
 $Lang{CfgEdit_Title_Server}                    = "Сервер";
 $Lang{CfgEdit_Title_General_Parameters}        = "Загальні параметри";

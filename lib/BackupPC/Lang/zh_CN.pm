@@ -45,13 +45,11 @@ $Lang{Admin_Options_Page}                           = <<EOF;
               document.ReloadForm.submit();">
 </table>
 </form>
-<!--
 \${h2("服务器配置")}
 <ul>
-  <li><i>其它选项，如：</i>
-  <li>更改服务器配置
+  <li><a href="\$MyURL\?action=editConfig">修改服务器配置</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">增删客户机</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "无法连接到 BackupPC 服务器";
@@ -1405,7 +1403,6 @@ EOF
 
 $Lang{Only_privileged_users_can_edit_config_files} = "只有特权用户可以编辑服务器配置。";
 $Lang{CfgEdit_Edit_Config}                         = "修改服务器配置";
-$Lang{CfgEdit_Edit_Hosts}                          = "增删客户机";
 
 $Lang{CfgEdit_Title_Server}                    = "服务器";
 $Lang{CfgEdit_Title_General_Parameters}        = "总体参数";

@@ -47,13 +47,11 @@ $Lang{Admin_Options_Page} = <<EOF;
               document.ReloadForm.submit();">
 </table>
 </form>
-<!--
 \${h2("Configuratie van de server")}
 <ul>
-  <li><i>Andere opties kunnen hier komen ... vb.,</i>
-  <li>Wijzig configuratie van de server
+  <li><a href="\$MyURL\?action=editConfig">Wijzig Configuratie van de server</a></li>
+  <li><a href="\$MyURL\?action=editConfig&newMenu=hosts">Wijzig Machines</a></li>
 </ul>
--->
 EOF
 
 $Lang{Unable_to_connect_to_BackupPC_server}               = "Verbinding met de BackupPC server is mislukt";
@@ -1472,7 +1470,6 @@ EOF
 $Lang{Only_privileged_users_can_edit_config_files} =
   "Enkel gebruikers met bijzondere rechten kunnen de configuratie wijzigen.";
 $Lang{CfgEdit_Edit_Config} = "Wijzig Configuratie";
-$Lang{CfgEdit_Edit_Hosts}  = "Wijzig Machines";
 
 $Lang{CfgEdit_Title_Server}                    = "Server";
 $Lang{CfgEdit_Title_General_Parameters}        = "Algemene Parameters";
